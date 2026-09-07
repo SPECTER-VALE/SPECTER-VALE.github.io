@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='112' fill='%23f0a04b'/%3E%3Cg fill='none' stroke='%230a0b0d' stroke-width='44'%3E%3Cpath d='M256 256 A78 78 0 1 1 332.82 164.46'/%3E%3Cpath d='M256 256 A78 78 0 1 1 179.18 347.54'/%3E%3C/g%3E%3C/svg%3E">
+<title>Specter Systems — AI automation & MCP integrations</title>
+<meta name="description" content="Specter Systems builds AI agents, Claude MCP connectors and Python automation for businesses. Doha, Qatar. Available for remote work.">
+<meta property="og:title" content="Specter Systems — AI automation & MCP integrations">
+<meta property="og:description" content="AI agents, Claude MCP connectors and Python automation that run real business workflows.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#0a0b0d; --surface:#101216; --surface-2:#15181d;
+    --line:#232830; --line-soft:#1a1e25;
+    --fg:#e8eaed; --fg-dim:#9aa2ad; --fg-faint:#6b7480;
+    --accent:#f0a04b; --accent-dim:#8a5f2c;
+    --ok:#5fbf7f;
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--bg);color:var(--fg);
+    font-family:var(--sans);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  .wrap{max-width:940px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--mono)}
+  .label{
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--fg-faint);
+  }
+
+  /* ---------- header ---------- */
+  header{border-bottom:1px solid var(--line-soft);padding:22px 0}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:14px;letter-spacing:.04em}
+  .mark{display:inline-flex;line-height:0}
+  .brand b{font-weight:600;letter-spacing:.14em}
+  .brand span{color:var(--fg-faint)}
+  .status{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:12px;color:var(--fg-dim);
+    border:1px solid var(--line);border-radius:999px;padding:5px 12px;background:var(--surface);
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(95,191,127,.15)}
+
+  /* ---------- hero ---------- */
+  .hero{padding:76px 0 60px;border-bottom:1px solid var(--line-soft)}
+  h1{
+    font-size:clamp(30px,5.6vw,52px);line-height:1.12;margin:0 0 22px;
+    font-weight:600;letter-spacing:-.02em;max-width:20ch;
+  }
+  h1 em{font-style:normal;color:var(--accent)}
+  .lede{font-size:clamp(16px,2.1vw,18.5px);color:var(--fg-dim);max-width:62ch;margin:0 0 30px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;font-family:var(--mono);font-size:13px;letter-spacing:.02em;
+    padding:11px 20px;border-radius:6px;text-decoration:none;border:1px solid var(--line);
+    color:var(--fg);background:var(--surface);transition:border-color .15s,background .15s;
+  }
+  .btn:hover{border-color:var(--fg-faint);background:var(--surface-2)}
+  .btn.primary{background:var(--accent);color:#160d02;border-color:var(--accent);font-weight:600}
+  .btn.primary:hover{background:#f7b268;border-color:#f7b268}
+
+  /* ---------- sections ---------- */
+  section{padding:60px 0;border-bottom:1px solid var(--line-soft)}
+  h2{font-size:13px;font-family:var(--mono);letter-spacing:.16em;text-transform:uppercase;
+     color:var(--fg-faint);margin:0 0 30px;font-weight:500}
+
+  .grid{display:grid;gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:10px;overflow:hidden}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(232px,1fr))}
+  .cell{background:var(--surface);padding:24px}
+  .cell h3{margin:0 0 8px;font-size:16px;font-weight:600;letter-spacing:-.01em}
+  .cell p{margin:0;color:var(--fg-dim);font-size:14.5px}
+  .cell .label{display:block;margin-bottom:14px;color:var(--accent-dim)}
+
+  /* ---------- work ---------- */
+  .work{display:flex;flex-direction:column;gap:0}
+  .item{
+    display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 28px;
+    padding:26px 0;border-top:1px solid var(--line-soft);align-items:start;
+  }
+  .item:first-child{border-top:0}
+  .item h3{margin:0 0 7px;font-size:17px;font-weight:600;letter-spacing:-.01em}
+  .item p{margin:0 0 12px;color:var(--fg-dim);font-size:14.5px;max-width:66ch}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{
+    font-family:var(--mono);font-size:11px;color:var(--fg-faint);
+    border:1px solid var(--line);border-radius:4px;padding:3px 8px;white-space:nowrap;
+  }
+  .metric{text-align:right;white-space:nowrap}
+  .metric b{display:block;font-family:var(--mono);font-size:22px;color:var(--accent);font-weight:600;letter-spacing:-.02em}
+  .metric span{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-faint)}
+  .note{
+    margin-top:26px;padding:14px 16px;border-left:2px solid var(--accent-dim);
+    background:var(--surface);border-radius:0 6px 6px 0;
+    color:var(--fg-dim);font-size:13.5px;
+  }
+
+  /* ---------- stack ---------- */
+  .stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:26px}
+  .stack div .label{display:block;margin-bottom:9px}
+  .stack ul{margin:0;padding:0;list-style:none;color:var(--fg-dim);font-size:14.5px}
+  .stack li{padding:2px 0}
+
+  /* ---------- rates ---------- */
+  table{width:100%;border-collapse:collapse;font-size:14.5px}
+  th{
+    text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--fg-faint);font-weight:500;
+    padding:0 14px 11px 0;border-bottom:1px solid var(--line);
+  }
+  td{padding:15px 14px 15px 0;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  td:first-child{color:var(--fg);font-weight:500}
+  td:not(:first-child){color:var(--fg-dim)}
+  .price{font-family:var(--mono);color:var(--accent)!important;white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+
+  /* ---------- contact ---------- */
+  .contact{padding:60px 0 24px;border-bottom:0}
+  .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .links a{
+    font-family:var(--mono);font-size:13px;text-decoration:none;color:var(--fg-dim);
+    border:1px solid var(--line);border-radius:6px;padding:10px 16px;background:var(--surface);
+    transition:color .15s,border-color .15s;
+  }
+  .links a:hover{color:var(--accent);border-color:var(--accent-dim)}
+  footer{padding:26px 0 44px;color:var(--fg-faint);font-family:var(--mono);font-size:11.5px;
+         display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+  @media (max-width:620px){
+    .item{grid-template-columns:1fr}
+    .metric{text-align:left}
+    .metric b{font-size:19px}
+    .hero{padding:52px 0 44px}
+    section{padding:46px 0}
+    table{font-size:13.5px}
+    td,th{padding-right:10px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <div class="brand"><span class="mark" aria-hidden="true"><svg viewBox="0 0 512 512" width="26" height="26"><rect width="512" height="512" rx="112" fill="#f0a04b"/><g fill="none" stroke="#0a0b0d" stroke-width="44"><path d="M256 256 A78 78 0 1 1 332.82 164.46"/><path d="M256 256 A78 78 0 1 1 179.18 347.54"/></g></svg></span><b>SPECTER SYSTEMS</b><span>/ Doha, Qatar</span></div>
+    <div class="status"><i class="dot"></i> Available for new work</div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="hero">
+      <h1>I build AI agents that run <em>real</em> business workflows.</h1>
+      <p class="lede">
+        Claude MCP connectors, Python data pipelines and outreach automation — the
+        unglamorous plumbing that takes a manual, repeated process and makes it run
+        without anyone watching it. Based in Doha, working remotely worldwide.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:specter00000000@gmail.com?subject=Project%20enquiry">Start a project</a>
+        <a class="btn" href="https://github.com/SPECTER-VALE">See the code</a>
+      </div>
+    </div>
+
+    <section>
+      <h2>What I build</h2>
+      <div class="grid g3">
+        <div class="cell">
+          <span class="label">01 — Connectors</span>
+          <h3>Claude MCP integrations</h3>
+          <p>Custom MCP servers that let Claude actually operate your tools — post, read, reply, report — instead of just talking about them. OAuth 2.1, deployed and maintained.</p>
+        </div>
+        <div class="cell">
+          <span class="label">02 — Pipelines</span>
+          <h3>Data &amp; lead systems</h3>
+          <p>Scrapers, enrichment and de-duplication in Python. Structured, verified records out of messy public sources, into a database you can actually sell from.</p>
+        </div>
+        <div class="cell">
+          <span class="label">03 — Automation</span>
+          <h3>Outreach &amp; workflow bots</h3>
+          <p>Email and WhatsApp campaign engines with worker queues, templates and a dashboard — so sending, tracking and follow-up stop being someone's afternoon.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Selected work</h2>
+      <div class="work">
+
+        <div class="item">
+          <div>
+            <h3>Claude MCP connector suite</h3>
+            <p>Three production MCP servers on a reusable OAuth 2.1 pattern: a combined Instagram + Facebook connector covering publishing, comments, conversations and insights, and a LinkedIn connector for authenticated posting. Built, deployed and running.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">MCP</span><span class="tag">OAuth 2.1</span><span class="tag">Meta Graph API</span><span class="tag">Vercel</span></div>
+          </div>
+          <div class="metric"><b>38</b><span>tools, one server</span></div>
+        </div>
+
+        <div class="item">
+          <div>
+            <h3>Lead generation pipeline</h3>
+            <p>Bilingual (English/Arabic) discovery across mapping and directory sources on a coordinate-grid search, writing into SQLite with de-duplication, a country gate to reject out-of-market records, and an async rewrite that tripled throughput. Built in-house for a Qatar retail group.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">asyncio</span><span class="tag">SQLite</span><span class="tag">Scraping</span><span class="tag">Data cleaning</span></div>
+          </div>
+          <div class="metric"><b>60k+</b><span>records built</span></div>
+        </div>
+
+        <div class="item">
+          <div>
+            <h3>Outreach engine &amp; campaign dashboard</h3>
+            <p>A multi-worker email agent plus WhatsApp Cloud API campaign flows, fronted by a Next.js dashboard for campaign state, contact routing and delivery status, with a spreadsheet CRM behind it.</p>
+            <div class="tags"><span class="tag">Next.js</span><span class="tag">WhatsApp Cloud API</span><span class="tag">Node.js</span><span class="tag">Google Sheets API</span></div>
+          </div>
+          <div class="metric"><b>9</b><span>dashboard views</span></div>
+        </div>
+
+        <div class="item">
+          <div>
+            <h3>Multi-brand analytics dashboard</h3>
+            <p>Reporting dashboard for a 15-brand retail group: adjustable reporting periods, PDF report uploads, role-based authentication and a scheduled keepalive job. Deployed and in use.</p>
+            <div class="tags"><span class="tag">Next.js</span><span class="tag">Supabase</span><span class="tag">Auth</span><span class="tag">GitHub Actions</span></div>
+          </div>
+          <div class="metric"><b>15</b><span>brands tracked</span></div>
+        </div>
+
+        <div class="item">
+          <div>
+            <h3>Commerce &amp; ERP integration</h3>
+            <p>Custom Shopify app connecting a live storefront to an Odoo v19 backend over OAuth, plus catalogue hygiene work — duplicate SKU resolution and handle repair after bulk imports.</p>
+            <div class="tags"><span class="tag">Shopify API</span><span class="tag">Odoo v19</span><span class="tag">OAuth</span><span class="tag">Data hygiene</span></div>
+          </div>
+          <div class="metric"><b>4</b><span>domains consolidated</span></div>
+        </div>
+
+      </div>
+      <p class="note">
+        Figures above describe the scale of what was built — records processed, tools shipped, systems deployed.
+        They are not client revenue claims. Client outcome numbers get published here only once a client agrees to them.
+      </p>
+    </section>
+
+    <section>
+      <h2>Stack</h2>
+      <div class="stack">
+        <div>
+          <span class="label">AI &amp; agents</span>
+          <ul><li>Claude API</li><li>Model Context Protocol</li><li>n8n</li><li>Prompt &amp; tool design</li></ul>
+        </div>
+        <div>
+          <span class="label">Backend</span>
+          <ul><li>Python (asyncio, requests)</li><li>Node.js</li><li>SQLite / Postgres</li><li>REST &amp; OAuth 2.1</li></ul>
+        </div>
+        <div>
+          <span class="label">Frontend &amp; deploy</span>
+          <ul><li>Next.js / TypeScript</li><li>Supabase</li><li>Vercel</li><li>GitHub Actions</li></ul>
+        </div>
+        <div>
+          <span class="label">Platform APIs</span>
+          <ul><li>Meta Graph &amp; WhatsApp Cloud</li><li>LinkedIn</li><li>Shopify &amp; Odoo</li><li>Google Sheets</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>How to engage</h2>
+      <table>
+        <thead>
+          <tr><th>Engagement</th><th>What you get</th><th>From</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Bug fix / site repair</td>
+            <td>A specific, defined defect diagnosed and fixed. Ordered through Fiverr with buyer protection.</td>
+            <td class="price">$15</td>
+          </tr>
+          <tr>
+            <td>Automation build</td>
+            <td>One workflow taken end to end — scoped, built, deployed, handed over with documentation.</td>
+            <td class="price">$300</td>
+          </tr>
+          <tr>
+            <td>Custom MCP connector</td>
+            <td>A Claude connector for your tool or platform: auth, tools, deployment, and a maintenance window.</td>
+            <td class="price">$500</td>
+          </tr>
+          <tr>
+            <td>Ongoing retainer</td>
+            <td>Monthly capacity for maintenance, extensions and new automations across your stack.</td>
+            <td class="price">Let's talk</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">
+        Fixed scope, fixed price, agreed before work starts. First engagements are deliberately small —
+        you should be able to test whether I'm worth hiring without a large commitment.
+      </p>
+    </section>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <p class="lede" style="margin-bottom:0">
+        Tell me the process you're tired of doing by hand. If I can automate it, I'll say how and what it costs.
+        If I can't, I'll say that too.
+      </p>
+      <div class="links">
+        <a href="mailto:specter00000000@gmail.com">Email</a>
+        <a href="https://github.com/SPECTER-VALE">GitHub</a>
+        <a href="https://www.fiverr.com/s/dDmB3YZ">Fiverr</a>
+        <a href="https://t.me/specter0bot">Telegram</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="wrap">
+  <span>SPECTER SYSTEMS — Doha, Qatar (GMT+3)</span>
+  <span>Available for remote work worldwide</span>
+</footer>
+
+</body>
+</html>
